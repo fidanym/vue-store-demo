@@ -12,7 +12,8 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "vue": "^2.5.2"
+    "vue": "^2.5.2",
+    "express": "*"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
