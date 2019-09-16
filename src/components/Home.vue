@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>You're home</h1>
+        <h1>Home component</h1>
         <h3 v-if="isLoggedIn">You are logged in</h3>
     </div>
 </template>

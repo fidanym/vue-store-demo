@@ -27,7 +27,7 @@
         this.$auth.register(this.username, this.password, this.email)
                 .then(message => {
                     alert(message)
-                    this.$router.push('auth/login')
+                    this.$router.push('login')
                 })
                 .catch(error => {
                     alert(error)

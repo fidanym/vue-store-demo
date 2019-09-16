@@ -1,6 +1,6 @@
 <template>
   <div>
-      <h1>Yo</h1>
+      <h1>App component</h1>
     <router-view/>
   </div>
 </template>
