@@ -1,3 +1,5 @@
+import client from '../api/mock/index.js'
+
 let Users = [
   {
     id: 1,
@@ -85,6 +87,10 @@ let AuthPlugin = {
 
   loggedIn: function () {
     return !!this.getToken()
+  },
+
+  userExists: function (username) {
+    return client.usernameExists(username)
   }
 }
 

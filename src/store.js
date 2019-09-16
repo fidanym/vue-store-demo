@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import Auth from './plugins/Auth.js'
+import client from './api/mock/index.js'
 
 Vue.use(Auth)
 Vue.use(Vuex)
@@ -26,7 +27,7 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    login ({commit}, credentials) {
+    login ({ commit }, credentials) {
       commit(LOGIN)
       return new Promise(function (resolve, reject) {
         if (!Vue.auth.logIn(credentials.username, credentials.password)) {
@@ -39,7 +40,7 @@ export default new Vuex.Store({
       })
 
     },
-    logout ({commit}) {
+    logout ({ commit }) {
       Vue.auth.destroyToken()
       commit(LOGOUT)
     }

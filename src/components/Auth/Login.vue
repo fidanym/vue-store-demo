@@ -4,6 +4,7 @@
         <input type="text" name="username" v-model="username" placeholder="Username">
         <input type="password" name="password" v-model="password" placeholder="Password">
         <button @click="login">Sign in</button>
+        <button @click="userExists">Exist?</button>
         <p>
             Don't have an account?
             <router-link to="/auth/register">Sign up!</router-link>
@@ -31,6 +32,11 @@
         }).catch(e => {
           alert('login fail')
         })
+      },
+      userExists() {
+          this.$auth.userExists(this.username)
+              .then(data => console.log(data))
+              .catch(error => console.log(error))
       }
     }
   }
