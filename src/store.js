@@ -29,14 +29,16 @@ export default new Vuex.Store({
   actions: {
     login ({ commit }, credentials) {
       commit(LOGIN)
-      return new Promise(function (resolve, reject) {
-        if (!Vue.auth.logIn(credentials.username, credentials.password)) {
-          reject()
-          return
-        }
 
-        commit(LOGIN_SUCCESS)
-        resolve()
+      return new Promise(function (resolve, reject) {
+        Vue.auth.logIn(credentials.username, credentials.password)
+            .then(() => {
+              resolve()
+              commit(LOGIN_SUCCESS)
+            })
+            .catch(() => {
+              reject()
+            })
       })
 
     },

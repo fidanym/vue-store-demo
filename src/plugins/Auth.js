@@ -1,36 +1,5 @@
 import client from '../api/mock/index.js'
 
-let Users = [
-  {
-    id: 1,
-    email: 'john@mail.com',
-    username: 'john',
-    password: 'johnny'
-  },
-  {
-    id: 2,
-    email: 'mike@mail.com',
-    username: 'mike',
-    password: 'mikey'
-  },
-  {
-    id: 3,
-    email: 'anna@mail.com',
-    username: 'anna',
-    password: 'annie'
-  },
-  {
-    id: 4,
-    email: 'rick@mail.com',
-    username: 'rick',
-    password: 'ricky'
-  }
-]
-
-let nextId = function () {
-  return Math.max(...Users.map(user => user.id))
-}
-
 let generateToken = function () {
   let length = 15
   let allowedCharacters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'.split('')
@@ -44,28 +13,44 @@ let generateToken = function () {
 
 let AuthPlugin = {
   logIn: function (username, password) {
-    if (!username || !password) {
-      return false
-    }
 
-    if (!Users.find(user => user.username === username && user.password === password)) {
-      return false
-    }
+    return new Promise((resolve, reject) => {
+      if (!username || !password) {
+        reject('Required details are missing')
+      }
 
-    setTimeout(() => {
-      this.setToken(generateToken())
-    }, 1000)
-
-    return true
+      client.passwordIsCorrect(username, password)
+          .then(() => {
+            this.setToken(generateToken())
+            resolve('Successfuly logged in')
+          })
+          .catch(() => {
+            reject('Username or password is incorrect')
+          })
+    })
   },
 
   logout: function () {
     this.destroyToken()
   },
 
-  // register: function() {
-  //
-  // },
+  register: function(username, password, email) {
+    return new Promise((resolve, reject) => {
+      if (!username || !password || !email) {
+        reject('Required details are missing')
+      }
+
+      // Do some validation?
+
+      client.registerUser(username, password, email)
+          .then(() => {
+            resolve('Successfuly registered')
+          })
+          .catch(err => {
+            reject(err)
+          })
+    })
+  },
 
   setToken: function (token) {
     sessionStorage.setItem('authToken', token)
@@ -87,10 +72,6 @@ let AuthPlugin = {
 
   loggedIn: function () {
     return !!this.getToken()
-  },
-
-  userExists: function (username) {
-    return client.usernameExists(username)
   }
 }
 
