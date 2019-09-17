@@ -1,5 +1,9 @@
 import client from '../api/mock/index.js'
 
+/**
+ * Generate a random string of chars, simulating a JWT
+ * @returns {string}
+ */
 let generateToken = function () {
   let length = 15
   let allowedCharacters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'.split('')
@@ -20,9 +24,9 @@ let AuthPlugin = {
       }
 
       client.passwordIsCorrect(username, password)
-          .then(() => {
+          .then(user => {
             this.setToken(generateToken())
-            resolve('Successfuly logged in')
+            resolve(user)
           })
           .catch(() => {
             reject('Username or password is incorrect')

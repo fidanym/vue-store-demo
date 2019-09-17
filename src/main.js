@@ -5,11 +5,23 @@ import App from './App'
 import Auth from './plugins/Auth.js'
 import router from './router'
 import store from './store'
+import 'bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css'
+
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faUser, faPowerOff } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
+library.add(faUser, faPowerOff);
+Vue.component('font-awesome-icon', FontAwesomeIcon);
 
 Vue.use(Auth)
 
 Vue.config.productionTip = false
 
+/**
+ * Intercept the route change and make sure the user has privilege to go there
+ */
 router.beforeEach(function (to, from, next) {
   let loggedIn = !!store.getters.isLoggedIn;
   if (to.matched.some(function (record) {

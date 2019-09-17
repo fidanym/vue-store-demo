@@ -9,10 +9,14 @@ Vue.use(Vuex)
 const LOGIN = 'LOGIN'
 const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
 const LOGOUT = 'LOGOUT'
+const SET_USER = 'SET_USER'
+const REMOVE_USER = 'REMOVE_USER'
 
 export default new Vuex.Store({
   state: {
-    isLoggedIn: Vue.auth.loggedIn()
+    isLoggedIn: Vue.auth.loggedIn(),
+    isNavOpen: false,
+    currentUser: null
   },
   mutations: {
     [LOGIN] (state) {
@@ -24,6 +28,15 @@ export default new Vuex.Store({
     },
     [LOGOUT] (state) {
       state.isLoggedIn = false
+    },
+    toggleNav (state) {
+      state.isNavOpen = !state.isNavOpen
+    },
+    [SET_USER] (state, user) {
+      state.currentUser = user
+    },
+    [REMOVE_USER] (state) {
+      state.currentUser = null
     }
   },
   actions: {
@@ -32,9 +45,11 @@ export default new Vuex.Store({
 
       return new Promise(function (resolve, reject) {
         Vue.auth.logIn(credentials.username, credentials.password)
-            .then(() => {
-              resolve()
+            .then(user => {
               commit(LOGIN_SUCCESS)
+              sessionStorage.setItem('currentUser', JSON.stringify(user))
+              commit(SET_USER, user)
+              resolve()
             })
             .catch(() => {
               reject()
@@ -44,12 +59,26 @@ export default new Vuex.Store({
     },
     logout ({ commit }) {
       Vue.auth.destroyToken()
+      sessionStorage.removeItem('currentUser')
       commit(LOGOUT)
+      commit(REMOVE_USER)
+    },
+
+    toggleNav( {commit} ) {
+      commit('toggleNav')
     }
   },
   getters: {
     isLoggedIn: state => {
       return state.isLoggedIn
+    },
+
+    isNavOpen: state => {
+      return state.isNavOpen
+    },
+
+    currentUser: state => {
+      return state.currentUser
     }
   }
 })

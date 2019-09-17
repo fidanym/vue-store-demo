@@ -27,7 +27,6 @@
           password: this.password
         }).then(() => {
           this.$router.push('/');
-          alert('login success')
         }).catch(e => {
           alert('login fail')
         })
