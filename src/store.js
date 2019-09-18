@@ -11,12 +11,14 @@ const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
 const LOGOUT = 'LOGOUT'
 const SET_USER = 'SET_USER'
 const REMOVE_USER = 'REMOVE_USER'
+const SET_CUSTOMERS = 'SET_CUSTOMERS'
 
 export default new Vuex.Store({
   state: {
     isLoggedIn: Vue.auth.loggedIn(),
     isNavOpen: false,
-    currentUser: null
+    currentUser: null,
+    customers: []
   },
   mutations: {
     [LOGIN] (state) {
@@ -37,6 +39,9 @@ export default new Vuex.Store({
     },
     [REMOVE_USER] (state) {
       state.currentUser = null
+    },
+    [SET_CUSTOMERS] (state, customers) {
+      state.customers = customers
     }
   },
   actions: {
@@ -66,6 +71,19 @@ export default new Vuex.Store({
 
     toggleNav( {commit} ) {
       commit('toggleNav')
+    },
+
+    loadCustomers( {commit} ) {
+      return new Promise(function (resolve, reject) {
+        client.fetchCustomers()
+            .then(customers => {
+              commit(SET_CUSTOMERS, customers)
+              resolve(customers)
+            })
+            .catch(e => {
+              reject(e)
+            })
+      })
     }
   },
   getters: {

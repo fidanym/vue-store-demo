@@ -4,6 +4,7 @@ import Auth from './components/Auth/Auth'
 import Login from './components/Auth/Login.vue'
 import Register from './components/Auth/Register.vue'
 import Home from './components/Home.vue'
+import Customers from "./components/Customers/Customers";
 
 Vue.use(VueRouter)
 
@@ -41,6 +42,14 @@ export default new VueRouter({
           }
         }
       ]
+    },
+    {
+      path: '/customers',
+      name: 'customers',
+      component: Customers,
+      meta: {
+        requiresAuth: true
+      }
     }
   ]
 })

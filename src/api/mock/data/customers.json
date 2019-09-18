@@ -1,0 +1,37 @@
+[
+  {
+    "id": "1",
+    "name": "john@mail.com",
+    "email": "john",
+    "purchasedProducts": [
+      {
+        "id": "2",
+        "name": "Plastic Chair",
+        "price": "100"
+      },
+      {
+        "id": "5",
+        "name": "Plastic Table",
+        "price": "135"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "email": "mike@mail.com",
+    "username": "mike",
+    "password": "mikey"
+  },
+  {
+    "id": "3",
+    "email": "anna@mail.com",
+    "username": "anna",
+    "password": "annie"
+  },
+  {
+    "id": "4",
+    "email": "rick@mail.com",
+    "username": "rick",
+    "password": "ricky"
+  }
+]

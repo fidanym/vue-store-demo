@@ -7,6 +7,7 @@
         <h4><font-awesome-icon icon="user" /> {{username}}</h4>
         <hr>
         <ul class="sidebar-panel-nav">
+          <router-link to="/customers"><font-awesome-icon icon="user" /> Customers</router-link>
           <li @click="logout"><font-awesome-icon icon="power-off" /> Logout</li>
         </ul>
       </div>
@@ -36,7 +37,6 @@
             },
             username() {
                 let user = sessionStorage.getItem('currentUser');
-                debugger;
                 if (!user) {
                     return 'error';
                 }

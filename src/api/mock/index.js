@@ -1,5 +1,7 @@
 // This is an API mock, just replace static data with axios calls
 import users from './data/users'
+import customers from './data/users'
+import products from './data/users'
 
 /**
  * Check whether the passed username already exists in the users list
@@ -72,6 +74,15 @@ const register = (users, username, password, email, time = 0) => {
         }, time)
     })
 }
+
+const getCustomers = (customers, time) => {
+    return new Promise( resolve => {
+        setTimeout(() => {
+            resolve(customers)
+        }, time)
+    })
+}
+
 /**
  * Helper function to check if a user exists by email and username
  * @param users
@@ -107,10 +118,16 @@ export default {
     usernameExists(username) {
         return usernameExists(users, username, 500)
     },
+
     passwordIsCorrect(username, password) {
         return passwordIsCorrect(users, username, password, 500)
     },
+
     registerUser(username, password, email){
         return register(users, username, password, email, 500)
+    },
+
+    fetchCustomers() {
+        return getCustomers(customers, 500)
     }
 }
