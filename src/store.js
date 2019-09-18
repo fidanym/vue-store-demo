@@ -18,7 +18,7 @@ export default new Vuex.Store({
     isLoggedIn: Vue.auth.loggedIn(),
     isNavOpen: false,
     currentUser: null,
-    customers: []
+    customers: null
   },
   mutations: {
     [LOGIN] (state) {
@@ -73,17 +73,14 @@ export default new Vuex.Store({
       commit('toggleNav')
     },
 
-    loadCustomers( {commit} ) {
-      return new Promise(function (resolve, reject) {
-        client.fetchCustomers()
-            .then(customers => {
-              commit(SET_CUSTOMERS, customers)
-              resolve(customers)
-            })
-            .catch(e => {
-              reject(e)
-            })
-      })
+    loadCustomers: ( {commit} ) => {
+      commit(SET_CUSTOMERS, 'loading');
+
+      client.fetchCustomers()
+          .then(customers => {
+            debugger;
+            commit(SET_CUSTOMERS, customers);
+          })
     }
   },
   getters: {
@@ -97,6 +94,10 @@ export default new Vuex.Store({
 
     currentUser: state => {
       return state.currentUser
+    },
+
+    customers: state => {
+      return state.customers
     }
   }
 })

@@ -1,7 +1,9 @@
 <template>
   <div id="customers">
     <h1>Customers</h1>
-    <customer v-if="loaded" v-for="customer in customers" :customer="customer"></customer>
+    <div v-if="customers !== 'loading' && customers !== null" class="customer-list">
+      <customer v-for="customer in customers" :customer="customer"></customer>
+    </div>
   </div>
 </template>
 
@@ -10,28 +12,16 @@
 
     export default {
         name: "Customers",
-        data: function () {
-            return {
-                customers: [],
-                loaded: false
-            }
-        },
         components: {
             customer: Customer
         },
-        methods: {
-          loadCustomers() {
-              let self = this;
-              this.$store.dispatch('loadCustomers')
-                  .then(customers => {
-                      debugger;
-                      self.customers = customers
-                      self.loaded = true
-                  })
+        computed: {
+          customers() {
+              return this.$store.getters.customers
           }
         },
         created() {
-            this.loadCustomers()
+            this.$store.dispatch('loadCustomers')
         }
     }
 </script>
