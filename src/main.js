@@ -11,10 +11,10 @@ import 'nprogress/nprogress.css'
 import NProgress from 'nprogress/nprogress'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faUser, faPowerOff } from '@fortawesome/free-solid-svg-icons'
+import { faUser, faPowerOff, faUsers, faHome, faSpinner } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-library.add(faUser, faPowerOff);
+library.add(faUser, faPowerOff, faUsers, faHome, faSpinner);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
 Vue.use(NProgress)

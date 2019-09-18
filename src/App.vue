@@ -1,14 +1,15 @@
 <template>
   <div id="app">
     <nav v-if="isLoggedIn" class="main-nav">
-      <loader :key="isLoading" :is-loading="isLoading"></loader>
       <burger></burger>
     </nav>
 
     <sidebar v-if="isLoggedIn" :user="currentUser"></sidebar>
 
     <div class="container">
-      <router-view/>
+      <transition name="fade" mode="out-in" appear>
+        <router-view/>
+      </transition>
     </div>
   </div>
 
@@ -18,14 +19,12 @@
 
     import Burger from "./components/Menu/Burger";
     import Sidebar from "./components/Menu/Sidebar";
-    import Loader from "./components/Loader";
 
     export default {
         name: 'App',
         components: {
             burger: Burger,
             sidebar: Sidebar,
-            loader: Loader
         },
         computed: {
             isLoggedIn() {
@@ -33,9 +32,6 @@
             },
             currentUser() {
                 return sessionStorage.getItem('currentUser')
-            },
-            isLoading() {
-                return this.$store.state.isLoading
             }
         }
     }
@@ -64,6 +60,7 @@
     -moz-border-radius: 15px;
     border-radius: 15px;
     box-shadow: #000 0 5px 5px -6px;
+    min-height: 250px;
   }
 
   .main-nav {
@@ -82,5 +79,20 @@
     font-size: 1.5rem;
     display: block;
     padding-bottom: 0.5em;
+  }
+
+  .fade-enter-active {
+    transition: opacity 1s;
+    -webkit-transition: opacity 1s;
+    opacity: 1;
+  }
+  .fade-enter {
+    opacity: 0;
+  }
+  .fade-leave {
+    display: none;
+  }
+  .fade-leave-active {
+    display: none;
   }
 </style>

@@ -128,6 +128,6 @@ export default {
     },
 
     fetchCustomers() {
-        return getCustomers(customers, 500)
+        return getCustomers(customers, 1000)
     }
 }

@@ -18,7 +18,8 @@ export default new Vuex.Store({
     isLoggedIn: Vue.auth.loggedIn(),
     isNavOpen: false,
     currentUser: null,
-    customers: null
+    customers: null,
+    isLoading: false
   },
   mutations: {
     [LOGIN] (state) {
@@ -33,6 +34,9 @@ export default new Vuex.Store({
     },
     toggleNav (state) {
       state.isNavOpen = !state.isNavOpen
+    },
+    toggleLoading (state) {
+      state.isLoading = !state.isLoading
     },
     [SET_USER] (state, user) {
       state.currentUser = user
@@ -78,7 +82,6 @@ export default new Vuex.Store({
 
       client.fetchCustomers()
           .then(customers => {
-            debugger;
             commit(SET_CUSTOMERS, customers);
           })
     }
@@ -98,6 +101,10 @@ export default new Vuex.Store({
 
     customers: state => {
       return state.customers
+    },
+
+    isLoading: state => {
+      return state.isLoading
     }
   }
 })

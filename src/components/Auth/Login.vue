@@ -2,7 +2,7 @@
   <div>
     <h4>Login</h4>
     <input type="text" name="username" v-model="username" placeholder="Username">
-    <input type="password" name="password" v-model="password" placeholder="Password">
+    <input type="password" name="password" v-model="password" v-on:keyup.enter="login" placeholder="Password">
     <button @click="login">Sign in</button>
     <p>
       Don't have an account?

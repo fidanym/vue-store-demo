@@ -7,8 +7,9 @@
         <h4><font-awesome-icon icon="user" /> {{username}}</h4>
         <hr>
         <ul class="sidebar-panel-nav">
-          <router-link to="/customers"><font-awesome-icon icon="user" /> Customers</router-link>
-          <li @click="logout"><font-awesome-icon icon="power-off" /> Logout</li>
+          <li><router-link @click.native="closeSidebarPanel" to="/"><span class="menu-icon"><font-awesome-icon icon="home" /></span> Home</router-link></li>
+          <li><router-link @click.native="closeSidebarPanel" to="/customers"><span class="menu-icon"><font-awesome-icon icon="users" /></span> Customers</router-link></li>
+          <li @click="logout"><a><span class="menu-icon"><font-awesome-icon icon="power-off" /></span> Logout</a></li>
         </ul>
       </div>
     </transition>
@@ -91,7 +92,6 @@
   }
 
   .sidebar-panel-nav li {
-    font-size: 1.4em;
     cursor: pointer;
   }
 
@@ -99,7 +99,25 @@
     color: #cccccc;
   }
 
+  .sidebar-panel-nav a {
+    color: inherit;
+    font-size: 1.4em;
+  }
+
+  .sidebar-panel-nav a:hover {
+    text-decoration: none;
+    color: #cccccc;
+  }
+
+  .sidebar-panel-nav a.router-link-exact-active {
+    color: #efea7e;
+  }
+
   .sidebar-panel hr {
     border-top: 2px solid rgb(255, 255, 255);
+  }
+
+  .menu-icon {
+    margin-right: 5px;
   }
 </style>
