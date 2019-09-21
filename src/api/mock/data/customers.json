@@ -1,8 +1,8 @@
 [
   {
     "id": "1",
-    "name": "john@mail.com",
-    "email": "john",
+    "name": "Julian",
+    "email": "julian@tpb.com",
     "purchasedProducts": [
       {
         "id": "2",
@@ -18,20 +18,31 @@
   },
   {
     "id": "2",
-    "email": "mike@mail.com",
-    "username": "mike",
-    "password": "mikey"
+    "name": "Bubbles",
+    "email": "bubbles@cats.com",
+    "purchasedProducts": [
+      {
+        "id": "4",
+        "name": "Wooden Table",
+        "price": "220"
+      },
+      {
+        "id": "1",
+        "name": "Wooden Chair",
+        "price": "150"
+      }
+    ]
   },
   {
     "id": "3",
-    "email": "anna@mail.com",
-    "username": "anna",
-    "password": "annie"
-  },
-  {
-    "id": "4",
-    "email": "rick@mail.com",
-    "username": "rick",
-    "password": "ricky"
+    "name": "Randy",
+    "email": "randy@bobandy.com",
+    "purchasedProducts": [
+      {
+        "id": "3",
+        "name": "Metal Chair",
+        "price": "250"
+      }
+    ]
   }
 ]

@@ -1,6 +1,6 @@
 // This is an API mock, just replace static data with axios calls
 import users from './data/users'
-import customers from './data/users'
+import customers from './data/customers'
 import products from './data/users'
 
 /**
@@ -128,6 +128,6 @@ export default {
     },
 
     fetchCustomers() {
-        return getCustomers(customers, 1000)
+        return getCustomers(customers, 750)
     }
 }
