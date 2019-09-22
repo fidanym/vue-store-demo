@@ -37,43 +37,6 @@
   }
 
   .tiles {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
     margin-top: 50px;
-  }
-
-  .tile {
-    flex: 1;
-    text-align: center;
-    padding: 60px 30px;
-    margin: 0 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    max-width: 300px;
-    background: #fffafb;
-    background: linear-gradient(45deg, rgb(255, 228, 222) -30%, rgb(247, 246, 190) 120%);
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
-    transition: 0.5s;
-  }
-
-  .tile:hover {
-    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2);
-    background: #ffe4ea;
-    background: linear-gradient(45deg, rgb(249, 196, 183) -30%, rgb(255, 254, 157) 120%);
-  }
-
-  .tile-icon {
-    font-size: 2em;
-  }
-
-  @media (max-width: 500px) {
-    .tiles {
-      flex-direction: column;
-    }
-
-    .tile {
-      margin-top: 20px;
-    }
   }
 </style>

@@ -9,6 +9,7 @@
         <ul class="sidebar-panel-nav">
           <li><router-link @click.native="closeSidebarPanel" to="/"><span class="menu-icon"><font-awesome-icon icon="home" /></span> Home</router-link></li>
           <li><router-link @click.native="closeSidebarPanel" to="/customers"><span class="menu-icon"><font-awesome-icon icon="users" /></span> Customers</router-link></li>
+          <li><router-link @click.native="closeSidebarPanel" to="/products"><span class="menu-icon"><font-awesome-icon icon="box" /></span> Products</router-link></li>
           <li @click="logout"><a><span class="menu-icon"><font-awesome-icon icon="power-off" /></span> Logout</a></li>
         </ul>
       </div>

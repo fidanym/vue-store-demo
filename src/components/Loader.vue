@@ -18,7 +18,8 @@
   .loading-spinner {
     font-size: 3em;
     color: #ababab;
-    position: absolute;
+    position: relative;
     left: 50%;
+    margin-top: 100px;
   }
 </style>

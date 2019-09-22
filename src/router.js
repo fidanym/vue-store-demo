@@ -5,6 +5,8 @@ import Login from './components/Auth/Login.vue'
 import Register from './components/Auth/Register.vue'
 import Customers from "./components/Customers/Customers";
 import Dashboard from './components/Dashboard'
+import ProductsView from './components/Products/ProductsView'
+import CustomerDetails from './components/Customers/CustomerDetails'
 
 Vue.use(VueRouter)
 
@@ -47,6 +49,23 @@ export default new VueRouter({
       path: '/customers',
       name: 'customers',
       component: Customers,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/customer/:id',
+      name: 'customerDetails',
+      component: CustomerDetails,
+      props: true,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/products',
+      name: 'products',
+      component: ProductsView,
       meta: {
         requiresAuth: true
       }
