@@ -133,6 +133,14 @@ a:hover {
     font-size: 2em;
 }
 
+.m-t-15 {
+    margin-top: 15px;
+}
+
+.m-t-30 {
+    margin-top: 30px;
+}
+
 @media (max-width: 500px) {
     .tiles {
         flex-direction: column;

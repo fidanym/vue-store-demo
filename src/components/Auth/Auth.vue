@@ -1,13 +1,16 @@
 <template>
-    <div>
-        <router-view/>
-    </div>
+  <div>
+    <transition name="fade" mode="out-in" appear>
+      <router-view/>
+
+    </transition>
+  </div>
 </template>
 
 <script>
-export default {
-  name: 'Auth'
-}
+  export default {
+    name: 'Auth'
+  }
 </script>
 
 <style scoped>
