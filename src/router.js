@@ -3,8 +3,8 @@ import VueRouter from 'vue-router'
 import Auth from './components/Auth/Auth'
 import Login from './components/Auth/Login.vue'
 import Register from './components/Auth/Register.vue'
-import Home from './components/Home.vue'
 import Customers from "./components/Customers/Customers";
+import Dashboard from './components/Dashboard'
 
 Vue.use(VueRouter)
 
@@ -13,8 +13,8 @@ export default new VueRouter({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: Home,
+      name: 'dash',
+      component: Dashboard,
       meta: {
         requiresAuth: true
       }

@@ -1,5 +1,5 @@
 <template>
-  <div class="customer row">
+  <div class="customer row custom-list-item">
     <div class="col-3">
       <h5>{{customer.name}}</h5>
     </div>
@@ -19,12 +19,4 @@
 </script>
 
 <style scoped>
-  .customer {
-    cursor: pointer;
-    padding: 10px 5px;
-    border-bottom: 1px solid #e4e4e4;
-  }
-  .customer:hover {
-    background-color: #f9f2db;
-  }
 </style>

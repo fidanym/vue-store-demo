@@ -2,7 +2,7 @@
   <div id="customers">
     <h1>Customers</h1>
     <div v-if="!isLoading && customers !== null" class="customer-list">
-      <div class="row table-header">
+      <div class="row custom-list-header">
         <div class="col-3">Name</div>
         <div class="col">E-mail</div>
       </div>
@@ -37,11 +37,5 @@
 </script>
 
 <style scoped>
-  .table-header {
-    border-bottom: 1px solid #a7a7a7;
-    font-weight: bold;
-    font-size: 1.3em;
-    padding-bottom: 5px;
-    margin-bottom: 10px;
-  }
+
 </style>
