@@ -1,7 +1,7 @@
 <template>
   <div id="login">
     <h4>Welcome to your store manager</h4>
-    <form class="m-t-30">
+    <form @submit.prevent class="m-t-30">
       <div class="form-group">
         <input type="text" class="form-control" name="username" v-model="username" placeholder="Username">
       </div>

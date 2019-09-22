@@ -1,7 +1,7 @@
 <template>
   <div id="register">
     <h4>Register an administrator account</h4>
-    <form class="m-t-30">
+    <form @submit.prevent class="m-t-30">
         <div class="form-group">
           <input type="text" class="form-control" v-model="username" name="username" placeholder="Username">
         </div>
