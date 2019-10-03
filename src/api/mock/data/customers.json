@@ -1,0 +1,48 @@
+[
+  {
+    "id": "1",
+    "name": "Julian",
+    "email": "julian@tpb.com",
+    "purchasedProducts": [
+      {
+        "id": "2",
+        "name": "Plastic Chair",
+        "price": "100"
+      },
+      {
+        "id": "5",
+        "name": "Plastic Table",
+        "price": "135"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "name": "Bubbles",
+    "email": "bubbles@cats.com",
+    "purchasedProducts": [
+      {
+        "id": "4",
+        "name": "Wooden Table",
+        "price": "220"
+      },
+      {
+        "id": "1",
+        "name": "Wooden Chair",
+        "price": "150"
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "name": "Randy",
+    "email": "randy@bobandy.com",
+    "purchasedProducts": [
+      {
+        "id": "3",
+        "name": "Metal Chair",
+        "price": "250"
+      }
+    ]
+  }
+]

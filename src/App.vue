@@ -1,28 +1,40 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld/>
+    <nav v-if="isLoggedIn" class="main-nav">
+      <burger></burger>
+    </nav>
+
+    <sidebar v-if="isLoggedIn" :user="currentUser"></sidebar>
+
+    <div class="container">
+      <transition name="fade" mode="out-in" appear>
+        <router-view/>
+      </transition>
+    </div>
   </div>
+
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+    import Burger from "./components/Menu/Burger";
+    import Sidebar from "./components/Menu/Sidebar";
+
+    export default {
+        name: 'App',
+        components: {
+            burger: Burger,
+            sidebar: Sidebar,
+        },
+        computed: {
+            isLoggedIn() {
+                return this.$store.getters.isLoggedIn
+            },
+            currentUser() {
+                return sessionStorage.getItem('currentUser')
+            }
+        }
+    }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style src="@/assets/css/style.css"></style>

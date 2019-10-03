@@ -1,0 +1,27 @@
+[
+  {
+    "id": "1",
+    "name": "Wooden Chair",
+    "price": "150"
+  },
+  {
+    "id": "2",
+    "name": "Plastic Chair",
+    "price": "100"
+  },
+  {
+    "id": "3",
+    "name": "Metal Chair",
+    "price": "250"
+  },
+  {
+    "id": "4",
+    "name": "Wooden Table",
+    "price": "220"
+  },
+  {
+    "id": "5",
+    "name": "Plastic Table",
+    "price": "135"
+  }
+]
