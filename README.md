@@ -13,4 +13,5 @@ npm run dev
 ```
 
 ## Hosted on Heroku
+Beware of slight CSS issues, assets are not in build
 Link: https://vue-store-demo-f.herokuapp.com/
